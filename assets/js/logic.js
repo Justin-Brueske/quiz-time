@@ -3,13 +3,18 @@ var timerEl = document.getElementById('timer');
 var startButton = document.getElementById("startbutton");
 var quizStart = document.getElementById("quizstart");
 var quizQuestion = document.getElementById("quizquestion");
-var quizEnd =document.getElementById("quizend")
-
-
+var quizEnd =document.getElementById("quizend");
+var question = document.getElementById('question');
+var a = document.getElementById('a');
+var b = document.getElementById('b');
+var c = document.getElementById('c');
+let i = 0;
+let submitAnswer = '';
+buttons = document.getElementsByClassName("answerbutton");
 
 function countdown() {
     
-    var timeLeft = 10;
+    var timeLeft = 600;
   
     var timeInterval = setInterval(function () {
       timerEl.textContent = timeLeft + ' seconds remaining';
@@ -29,8 +34,51 @@ startButton.addEventListener("click", function () {
     countdown ();
     quizStart.style.display = "none";
     quizQuestion.style.visibility = "visible";
+    startQuestion();
+    answer();
 
 });
+console.log(quizData);
+
+function startQuestion () {
+    
+    submitAnswer = "";
+    console.log(submitAnswer);
+    question.textContent = quizData[i].question;
+    a.textContent = quizData[i].a;
+    b.textContent = quizData[i].b;
+    c.textContent = quizData[i].c;
+    // buttons = document.getElementsByClassName("answerbutton");
+
+};
+
+function answer () {
+    
+    for (let k = 0; k < buttons.length; k++) {
+        buttons[k].addEventListener("click", function() {
+            // console.log(buttons[k].getAttribute("id"));
+            submitAnswer = buttons[k].getAttribute("id");    
+            console.log(submitAnswer);
+            console.log(quizData[i].correct);
+            if (submitAnswer != "") {
+                console.log(i);
+                if (submitAnswer == quizData[i].correct) {
+                    console.log("correct"); 
+                    console.log(k); 
+                    i++;
+                    startQuestion();                 
+                } else {
+                    console.log("wrong");
+                    i++;
+                    startQuestion();
+                } 
+            }
+                 
+        });        
+    };
+    
+    
+};
 
 
 
