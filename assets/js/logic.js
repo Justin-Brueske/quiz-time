@@ -1,6 +1,12 @@
+
 var timerEl = document.getElementById('timer');
+var startButton = document.getElementById("startbutton");
+var quizStart = document.getElementById("quizstart");
+var quizQuestion = document.getElementById("quizquestion");
+var quizEnd =document.getElementById("quizend")
 
 function countdown() {
+    
     var timeLeft = 10;
   
     var timeInterval = setInterval(function () {
@@ -10,15 +16,19 @@ function countdown() {
       if(timeLeft === -1 ) {
         clearInterval(timeInterval);
         timerEl.textContent = 'times up';
+        quizQuestion.style.visibility = "hidden";
+        quizEnd.style.visibility = "visible";
       }
   
     }, 1000);
-  }
+}
 
-  countdown();
+startButton.addEventListener("click", function () {
+    countdown ();
+    quizStart.style.visibility = "hidden";
+    quizQuestion.style.visibility = "visible";
 
-// for creating buttons in the list
-// var li5 = document.createElement("button");
-// li5.textContent = "start";
-// listEl.appendChild(li5);
+});
+console.log(startButton);
+
   
