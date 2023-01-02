@@ -5,6 +5,8 @@ var quizStart = document.getElementById("quizstart");
 var quizQuestion = document.getElementById("quizquestion");
 var quizEnd =document.getElementById("quizend")
 
+quizStart.style.visibility = "visible";
+
 function countdown() {
     
     var timeLeft = 10;
@@ -16,7 +18,7 @@ function countdown() {
       if(timeLeft === -1 ) {
         clearInterval(timeInterval);
         timerEl.textContent = 'times up';
-        quizQuestion.style.visibility = "hidden";
+        quizQuestion.style.display = "none";
         quizEnd.style.visibility = "visible";
       }
   
@@ -25,7 +27,7 @@ function countdown() {
 
 startButton.addEventListener("click", function () {
     countdown ();
-    quizStart.style.visibility = "hidden";
+    quizStart.style.display = "none";
     quizQuestion.style.visibility = "visible";
 
 });
