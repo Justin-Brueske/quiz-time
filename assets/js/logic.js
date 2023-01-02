@@ -5,7 +5,7 @@ var quizStart = document.getElementById("quizstart");
 var quizQuestion = document.getElementById("quizquestion");
 var quizEnd =document.getElementById("quizend")
 
-quizStart.style.visibility = "visible";
+
 
 function countdown() {
     
@@ -31,6 +31,7 @@ startButton.addEventListener("click", function () {
     quizQuestion.style.visibility = "visible";
 
 });
-console.log(startButton);
+
+
 
   
