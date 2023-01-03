@@ -14,18 +14,24 @@ buttons = document.getElementsByClassName("answerbutton");
 
 function countdown() {
     
-    var timeLeft = 600;
+    timeLeft = 600;
   
     var timeInterval = setInterval(function () {
       timerEl.textContent = timeLeft + ' seconds remaining';
       timeLeft--;
   
-      if(timeLeft === -1 ) {
+        if (timeLeft === -1 ) {
         clearInterval(timeInterval);
         timerEl.textContent = 'times up';
         quizQuestion.style.display = "none";
         quizEnd.style.visibility = "visible";
-      }
+        } else if (i === quizData.length) {
+            clearInterval(timeInterval);
+            timerEl.textContent = 'Out of Questions';
+            quizQuestion.style.display = "none";
+            quizEnd.style.visibility = "visible";
+            console.log(timeLeft);
+        }
   
     }, 1000);
 }
@@ -58,8 +64,6 @@ function answer () {
             submitAnswer = buttons[k].getAttribute("id");    
             console.log(submitAnswer);
             console.log(quizData[i].correct);
-            if (submitAnswer != "") {
-                console.log(i);
                 if (submitAnswer == quizData[i].correct) {
                     console.log("correct"); 
                     i++;
@@ -67,11 +71,12 @@ function answer () {
                 } else {
                     console.log("wrong");
                     i++;
+                    timeLeft-50;
                     nextquestion();
                 } 
             }
                  
-        });        
+        );        
     };
     
     
