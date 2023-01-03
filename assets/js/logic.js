@@ -41,14 +41,13 @@ startButton.addEventListener("click", function () {
 console.log(quizData);
 
 function startQuestion () {
-    
-    submitAnswer = "";
-    console.log(submitAnswer);
-    question.textContent = quizData[i].question;
-    a.textContent = quizData[i].a;
-    b.textContent = quizData[i].b;
-    c.textContent = quizData[i].c;
-    // buttons = document.getElementsByClassName("answerbutton");
+
+        submitAnswer = "";
+        console.log(submitAnswer);
+        question.textContent = quizData[i].question;
+        a.textContent = quizData[i].a;
+        b.textContent = quizData[i].b;
+        c.textContent = quizData[i].c;
 
 };
 
@@ -56,7 +55,6 @@ function answer () {
     
     for (let k = 0; k < buttons.length; k++) {
         buttons[k].addEventListener("click", function() {
-            // console.log(buttons[k].getAttribute("id"));
             submitAnswer = buttons[k].getAttribute("id");    
             console.log(submitAnswer);
             console.log(quizData[i].correct);
@@ -64,13 +62,12 @@ function answer () {
                 console.log(i);
                 if (submitAnswer == quizData[i].correct) {
                     console.log("correct"); 
-                    console.log(k); 
                     i++;
-                    startQuestion();                 
+                    nextquestion();                 
                 } else {
                     console.log("wrong");
                     i++;
-                    startQuestion();
+                    nextquestion();
                 } 
             }
                  
@@ -79,6 +76,16 @@ function answer () {
     
     
 };
+
+function nextquestion () {
+    if (i < quizData.length) {
+        startQuestion();        
+    } else {
+        quizQuestion.style.display = "none";
+        quizEnd.style.visibility = "visible";
+    }
+    
+}
 
 
 
