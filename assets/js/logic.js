@@ -4,6 +4,7 @@ var startButton = document.getElementById("startbutton");
 var quizStart = document.getElementById("quizstart");
 var quizQuestion = document.getElementById("quizquestion");
 var quizEnd =document.getElementById("quizend");
+var quizEndHead =document.getElementById("quizendhead");
 var question = document.getElementById('question');
 var a = document.getElementById('a');
 var b = document.getElementById('b');
@@ -14,22 +15,24 @@ buttons = document.getElementsByClassName("answerbutton");
 
 function countdown() {
     
-    timeLeft = 600;
+    timeLeft = 6;
   
     var timeInterval = setInterval(function () {
       timerEl.textContent = timeLeft + ' seconds remaining';
       timeLeft--;
   
         if (timeLeft === -1 ) {
-        clearInterval(timeInterval);
-        timerEl.textContent = 'times up';
-        quizQuestion.style.display = "none";
-        quizEnd.style.visibility = "visible";
-        } else if (i === quizData.length) {
             clearInterval(timeInterval);
-            timerEl.textContent = 'Out of Questions';
+            timerEl.textContent = '';
             quizQuestion.style.display = "none";
             quizEnd.style.visibility = "visible";
+            quizEndHead.textContent = "Out of time";
+        } else if (i === quizData.length) {
+            clearInterval(timeInterval);
+            timerEl.textContent = '';
+            quizQuestion.style.display = "none";
+            quizEnd.style.visibility = "visible";
+            quizEndHead.textContent = "End of quiz";
             console.log(timeLeft);
         }
   
