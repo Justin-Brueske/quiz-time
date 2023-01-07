@@ -19,13 +19,14 @@ buttons = document.getElementsByClassName("answerbutton");
 var submitButton = document.querySelector('#submit');
 var retakeButton = document.querySelector('#retake');
 var clearButton = document.querySelector('#clearscore');
+var showhighscoreButton = document.querySelector('#showhighscore');
 var hiscore = [];
 
 
 
 function countdown() {
     
-    timeLeft = 600;
+    timeLeft = 60;
   
     var timeInterval = setInterval(function () {
       timerEl.textContent = timeLeft + ' seconds remaining';
@@ -150,6 +151,17 @@ clearButton.addEventListener('click', function (event) {
     localStorage.clear();
     highScoreList.innerHTML = "";    
 });
+
+showhighscoreButton.addEventListener('click', function (event) {
+    quizStart.style.display = "none";
+    quizQuestion.style.display = "none";
+    quizEnd.style.display = "none";
+    timerEl.style.visibility = "hidden";
+    highscores.style.visibility = "visible"; 
+    renderHiscore();
+});
+
+
 
 init();
 
