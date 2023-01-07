@@ -18,19 +18,26 @@
             <h3>Would you like to take a quiz about Escape From Tarkov?</h3>
             <button id="startbutton">Yes</button>
         </section>
-        
+
         <section id="quizquestion">
             <h3 id="question"></h3>           
             <p><button id="a" class="answerbutton"></button></p>
             <p><button id="b" class="answerbutton"></button></p>
             <p><button id="c" class="answerbutton"></button></p>        
-           <p id="lastanswer"></p>
+            <p id="lastanswer"></p>
         </section>
 
         <section id="quizend">
             <h3 id="quizendhead"></h3>
-            <input type="text" name="initials" id="iniiatls" placeholder="Enter your Initials">
-            <button id="submit">Submit</button>
+            <input type="text" name="initials" id="initials" maxlength="3" placeholder="Enter your Initials">
+            <button id="submit">Submit</button>            
+        </section>
+
+        <section id="highscores">
+            <h4>Highscores</h4>
+            <ul id="highscores-list"></ul>
+            <button id="retake">Retake Quiz</button>
+            <button id="clearscore">Clear Highscore</button>
         </section>
         
     </section>

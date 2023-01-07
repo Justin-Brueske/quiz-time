@@ -29,3 +29,12 @@ header {
 button:hover {
     background-color: green;
 }
+
+#highscores {
+    visibility: hidden;
+    text-align: center;
+}
+
+ul li {
+    list-style: none;
+}
