@@ -5,9 +5,7 @@ header {
     font-size: 16px;
 }
 
-
 #quizstart {
-
     font-size: 40px; 
     text-align: center;
 }
@@ -19,9 +17,15 @@ header {
 
 #quizquestion {
     visibility: hidden;
+    text-align: center;
+
 }
 
 #quizend {
     visibility: hidden;
+    text-align: center;
+}
 
+button:hover {
+    background-color: green;
 }

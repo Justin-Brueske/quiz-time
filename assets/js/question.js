@@ -1,7 +1,7 @@
 /*quiz data */
 const quizData = [
     {
-      question: 'What is the newest map added ?',
+      question: 'What is the newest map added in patch .13 ?',
       a: 'Labs',
       b: 'Streets ',
       c: 'Factory',
@@ -15,7 +15,7 @@ const quizData = [
       correct: 'c',
     },
     {
-      question: 'How many cat firgures are needed for the Documents case trade  ?',
+      question: 'How many cat firgures are needed for the Documents case trade ?',
       a: '3 ',
       b: '1 ',
       c: '2 ',

@@ -6,6 +6,7 @@ var quizQuestion = document.getElementById("quizquestion");
 var quizEnd =document.getElementById("quizend");
 var quizEndHead =document.getElementById("quizendhead");
 var question = document.getElementById('question');
+var lastAnswer = document.getElementById("lastanswer")
 var a = document.getElementById('a');
 var b = document.getElementById('b');
 var c = document.getElementById('c');
@@ -13,9 +14,10 @@ let i = 0;
 let submitAnswer = '';
 buttons = document.getElementsByClassName("answerbutton");
 
+
 function countdown() {
     
-    timeLeft = 6;
+    timeLeft = 600;
   
     var timeInterval = setInterval(function () {
       timerEl.textContent = timeLeft + ' seconds remaining';
@@ -32,10 +34,10 @@ function countdown() {
             timerEl.textContent = '';
             quizQuestion.style.display = "none";
             quizEnd.style.visibility = "visible";
-            quizEndHead.textContent = "End of quiz";
+            quizEndHead.textContent = "End of quiz, Your Score is " + timeLeft;
             console.log(timeLeft);
-        }
-  
+        } 
+
     }, 1000);
 }
 
@@ -47,7 +49,6 @@ startButton.addEventListener("click", function () {
     answer();
 
 });
-console.log(quizData);
 
 function startQuestion () {
 
@@ -57,7 +58,7 @@ function startQuestion () {
         a.textContent = quizData[i].a;
         b.textContent = quizData[i].b;
         c.textContent = quizData[i].c;
-
+        
 };
 
 function answer () {
@@ -70,11 +71,13 @@ function answer () {
                 if (submitAnswer == quizData[i].correct) {
                     console.log("correct"); 
                     i++;
+                    lastAnswer.textContent = "Last Answer was Corrrect"
                     nextquestion();                 
                 } else {
                     console.log("wrong");
                     i++;
-                    timeLeft-50;
+                    timeLeft = timeLeft-50;
+                    lastAnswer.textContent = "Last Answer was Wrong"
                     nextquestion();
                 } 
             }
