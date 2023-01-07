@@ -35,4 +35,11 @@ const quizData = [
       c: 'Factory ',
       correct: 'b',
     },
+    {
+      question: 'What is the smallest map in Tarkov ?',
+      a: 'Factory',
+      b: 'Shoreline ',
+      c: 'Woods',
+      correct: 'a',
+    },
   ];

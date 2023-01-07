@@ -32,7 +32,7 @@ function countdown() {
       timerEl.textContent = timeLeft + ' seconds remaining';
       timeLeft--;
   
-        if (timeLeft === -1 ) {
+        if (timeLeft <= -1 ) {
             clearInterval(timeInterval);
             timerEl.textContent = '';
             quizQuestion.style.display = "none";
@@ -85,7 +85,7 @@ function answer () {
                 } else {
                     console.log("wrong");
                     i++;
-                    timeLeft = timeLeft-50;
+                    timeLeft = timeLeft-10;
                     lastAnswer.textContent = "Last Answer was Wrong"
                     nextquestion();
                 } 
