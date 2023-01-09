@@ -23,7 +23,7 @@ var showhighscoreButton = document.querySelector('#showhighscore');
 var hiscore = [];
 
 
-
+// Timer function
 function countdown() {
     
     timeLeft = 60;
@@ -44,46 +44,38 @@ function countdown() {
             quizQuestion.style.display = "none";
             quizEnd.style.visibility = "visible";
             quizEndHead.textContent = "End of quiz, Your Score is " + timeLeft;
-            console.log(timeLeft);
         } 
-
     }, 1000);
 }
 
+// start button listener
 startButton.addEventListener("click", function () {
     countdown ();
     quizStart.style.display = "none";
     quizQuestion.style.visibility = "visible";
     startQuestion();
     answer();
-
 });
 
+// displays the question
 function startQuestion () {
-
         submitAnswer = "";
-        console.log(submitAnswer);
         question.textContent = quizData[i].question;
         a.textContent = quizData[i].a;
         b.textContent = quizData[i].b;
         c.textContent = quizData[i].c;
-
 };
 
+// answer function 
 function answer () {
-    
     for (let k = 0; k < buttons.length; k++) {
         buttons[k].addEventListener("click", function() {
             submitAnswer = buttons[k].getAttribute("id");    
-            console.log(submitAnswer);
-            console.log(quizData[i].correct);
                 if (submitAnswer == quizData[i].correct) {
-                    console.log("correct"); 
                     i++;
                     lastAnswer.textContent = "Last Answer was Corrrect"
                     nextquestion();                 
                 } else {
-                    console.log("wrong");
                     i++;
                     timeLeft = timeLeft-10;
                     lastAnswer.textContent = "Last Answer was Wrong"
@@ -94,6 +86,7 @@ function answer () {
     };      
 };
 
+// next question 
 function nextquestion () {
     if (i < quizData.length) {
         startQuestion();        
@@ -103,15 +96,16 @@ function nextquestion () {
     }    
 }
 
+// stores highscore
 function init() {
     var storedScores = JSON.parse(localStorage.getItem("hiscore"));
-    console.log(storedScores);
     if (storedScores !== null) {
         hiscore = storedScores;
     }
     
 }
 
+// submits and adds to highscores
 submitButton.addEventListener('click', function (event) {
     event.preventDefault();
     var scores = {
@@ -126,6 +120,7 @@ submitButton.addEventListener('click', function (event) {
 
 });
 
+// renders scoreboard
 function renderHiscore() {
 
     highScoreList.innerHTML = "";
@@ -137,21 +132,23 @@ function renderHiscore() {
   
       var li = document.createElement("li");
       li.textContent = listInitials + ":     " + listScore;
-      li.setAttribute("data-index", i);
-  
+      li.setAttribute("data-index", i);  
       highScoreList.appendChild(li);
     }
 }
 
+// listener for retake button
 retakeButton.addEventListener('click', function (event) {
     location.reload();
 });
 
+//  listener for clear button
 clearButton.addEventListener('click', function (event) {
     localStorage.clear();
     highScoreList.innerHTML = "";    
 });
 
+// listener for highscore display
 showhighscoreButton.addEventListener('click', function (event) {
     quizStart.style.display = "none";
     quizQuestion.style.display = "none";
@@ -160,8 +157,6 @@ showhighscoreButton.addEventListener('click', function (event) {
     highscores.style.visibility = "visible"; 
     renderHiscore();
 });
-
-
 
 init();
 
