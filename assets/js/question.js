@@ -37,9 +37,9 @@ const quizData = [
     },
     {
       question: 'What is the smallest map in Tarkov ?',
-      a: 'Factory',
-      b: 'Shoreline ',
-      c: 'Woods',
+      a: 'Factory ',
+      b: 'Customs ',
+      c: 'Lighthouse ',
       correct: 'a',
     },
   ];
